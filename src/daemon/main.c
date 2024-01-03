@@ -880,11 +880,6 @@ int main(int argc, char *argv[]) {
     if (conf->system_instance && !conf->disallow_module_loading)
         pa_log_warn(_("Running in system mode, but --disallow-module-loading not set."));
 
-    if (conf->system_instance && !conf->disable_shm) {
-        pa_log_notice(_("Running in system mode, forcibly disabling SHM mode."));
-        conf->disable_shm = true;
-    }
-
     if (conf->system_instance && conf->exit_idle_time >= 0) {
         pa_log_notice(_("Running in system mode, forcibly disabling exit idle time."));
         conf->exit_idle_time = -1;
